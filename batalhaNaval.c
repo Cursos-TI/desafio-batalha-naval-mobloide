@@ -36,5 +36,50 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+    // 1. Definição do Tabuleiro e Constantes
+    int tabuleiro[10][10];
+    int tamanhoNavio = 3;
+    int i, j;
+
+    // Inicializando o tabuleiro com 0 (Água)
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
+
+    // 2. Posicionamento do Navio Horizontal
+    // Coordenada inicial: Linha 2, Coluna 1
+    int horizontalLinha = 2;
+    int horizontalColunaInicial = 1;
+
+    for (j = 0; j < tamanhoNavio; j++) {
+        // Mantém a linha fixa e incrementa a coluna
+        tabuleiro[horizontalLinha][horizontalColunaInicial + j] = 3;
+    }
+
+    // 3. Posicionamento do Navio Vertical
+    // Coordenada inicial: Linha 5, Coluna 7
+    int verticalLinhaInicial = 5;
+    int verticalColuna = 7;
+
+    for (i = 0; i < tamanhoNavio; i++) {
+        // Mantém a coluna fixa e incrementa a linha
+        tabuleiro[verticalLinhaInicial + i][verticalColuna] = 3;
+    }
+
+    // 4. Exibição do Tabuleiro
+    printf("--- Tabuleiro Batalha Naval ---\n\n");
+    
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            // Imprime o valor seguido de um espaço para legibilidade
+            printf("%d ", tabuleiro[i][j]);
+        }
+        // Quebra de linha ao final de cada linha da matriz
+        printf("\n");
+    }
+
     return 0;
+
 }
